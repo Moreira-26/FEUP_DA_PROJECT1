@@ -1,0 +1,17 @@
+# ninja log v5
+0	35	1649009016716856659	CMakeFiles/Project.dir/order.cpp.o	afff4b2fe8089904
+0	427	1649009017108860734	CMakeFiles/Project.dir/main.cpp.o	e9bd88197c509676
+1	484	1649009017168861358	CMakeFiles/Project.dir/load.cpp.o	2feed3593d66bb48
+1	488	1649009017172861400	CMakeFiles/Project.dir/manageOrders.cpp.o	c913cb1e392d9a8
+0	507	1649009017188861566	CMakeFiles/Project.dir/courier.cpp.o	b656b0bab632edc1
+507	578	1649009017260862314	Project	21d03bf45d699922
+1	317	1649009195018666307	CMakeFiles/Project.dir/load.cpp.o	2feed3593d66bb48
+1	322	1649009195026666386	CMakeFiles/Project.dir/main.cpp.o	e9bd88197c509676
+0	301	1649009228422996762	CMakeFiles/Project.dir/load.cpp.o	2feed3593d66bb48
+301	367	1649009228486997393	Project	21d03bf45d699922
+1	24	1649010098991101958	CMakeFiles/Project.dir/order.cpp.o	afff4b2fe8089904
+1	394	1649010099359105269	CMakeFiles/Project.dir/main.cpp.o	e9bd88197c509676
+2	502	1649010099467106241	CMakeFiles/Project.dir/load.cpp.o	2feed3593d66bb48
+4	519	1649010099483106384	CMakeFiles/Project.dir/manageOrders.cpp.o	c913cb1e392d9a8
+1	564	1649010099531106816	CMakeFiles/Project.dir/courier.cpp.o	b656b0bab632edc1
+564	639	1649010099603107464	Project	21d03bf45d699922
