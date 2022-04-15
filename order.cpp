@@ -40,3 +40,7 @@ int Order::getId() {
     return id;
 }
 
+bool Order::operator<(const Order o1) {
+    return this->getTime() < o1.time;
+}
+

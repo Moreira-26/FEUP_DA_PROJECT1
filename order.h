@@ -19,6 +19,7 @@ public:
     int getPrice();
     int getTime();
     int getId();
+    bool operator<(const Order o1);
 };
 
 

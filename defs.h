@@ -13,5 +13,7 @@ using namespace std;
 #include <cstring>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <map>
 
 #endif //PROJECT_DEFS_H

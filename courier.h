@@ -20,7 +20,6 @@ public:
     int getFee();
     vector<Order> getOrders();
     void addOrder(Order &order);
-
 };
 
 
