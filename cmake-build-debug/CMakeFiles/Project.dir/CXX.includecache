@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/courier.h
+defs.h
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/defs.h
+order.h
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/order.h
+
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/defs.h
+iostream
+-
+vector
+-
+string
+-
+cstring
+-
+fstream
+-
+sstream
+-
+algorithm
+-
+map
+-
+
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/manageOrders.cpp
+manageOrders.h
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/manageOrders.h
+
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/manageOrders.h
+defs.h
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/defs.h
+courier.h
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/courier.h
+
+C:/Users/asus/OneDrive/Ambiente de Trabalho/DA/DA_PROJECT1/order.h
+

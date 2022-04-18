@@ -9,7 +9,7 @@ int main() {
 
     load.run(mO);
 
-    cout << "WEIGHT"<<endl;
-    mO.printMap(mO.efficientCourier());
+    cout << "PRICE"<<endl;
+    mO.printMap(mO.efficientProfit());
     return 0;
 }

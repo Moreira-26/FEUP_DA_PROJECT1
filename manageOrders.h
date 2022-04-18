@@ -19,8 +19,10 @@ public:
     void printCouriers();
     void printOrders();
     void printMap(map<int,vector<Order>> mapResult);
-    void averageTime(vector<Order> ordersExpress);
+    void averageTime();
     map<int,vector<Order>> efficientCourier();
+    map<int,vector<Order>> efficientProfit();
+    void menu();
 };
 
 

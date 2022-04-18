@@ -54,21 +54,75 @@ int sumWeight(vector<Order> orders){
     return count;
 }
 
+int sumPrice(vector<Order> orders){
+    int count  = 0;
+    for(Order o : orders){
+        count += o.getPrice();
+    }
+    return count;
+}
+
+/////Menu
+void ManageOrders::menu() {
+    bool notExit = true;
+    int input;
+
+    do{
+        cout << "-------- MENU --------" << endl;
+        cout << endl;
+        cout << "1) Minimize number of couriers" << endl;
+        cout << "2) Maximize profit" << endl;
+        cout << "3) Minimize time of express orders' delivery" << endl;
+        cout << "0) Exit" << endl;
+        
+        
+        while(input != 0 && input != 1 && input != 2 && input != 3) {
+            cout << "Input invalido, insira novamente!" << endl;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cin >> input;
+        }
+
+        switch (input) {
+            case 0:
+                notExit = false;
+                break;
+            case 1:
+                efficientCourier();
+                break;
+            case 2:
+                efficientProfit();
+                break;
+            case 3:
+                averageTime();
+                break;
+        }
+        
+    } while (notExit);
+}
+
+
 /////Prints
 void ManageOrders::printMap(map<int,vector<Order>> mapResult) {
     int count = 0;
+    int total = 0;
     for(pair<int,vector<Order>> p:mapResult){
-        cout << "id Estafeta: " << p.first << " " << "Weight: " << getCourierId(p.first).getWeightMax() -
-                sumWeight(p.second) << "---" << "Volume " <<getCourierId(p.first).getVolMax() - sumVol(p.second) << " ";
-        cout << "Encomendas: ";
-        for(Order o: p.second){
-            cout << o.getId() << " ";
-            count++;
+        int aux = sumPrice(p.second) - getCourierId(p.first).getFee();
+        total += sumPrice(p.second);
+        if(aux > 0) {
+            count+= aux;
+            cout << "id Estafeta: " << p.first << " " << "Profit: " << aux << " ";
+            cout << "Encomendas: ";
+            for(Order o: p.second){
+                cout << o.getId() << " ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
 
     cout << "Nº estafetas: " << mapResult.size() << endl;
+    cout << count << endl;
+    cout << total;
 }
 
 ////Compare
@@ -90,9 +144,34 @@ struct compareCouriersWeightVol{
         return (c1.getWeightMax() + c1.getVolMax() > c2.getWeightMax() + c2.getVolMax());
     }
 };
+/*
+struct compareCouriersFee{
+    bool operator()(Courier c1, Courier c2){
+        return (((double)(c1.getFee())/(c1.getWeightMax() + c1.getVolMax())) < ((double)c2.getFee()/(c2.getWeightMax() + c2.getVolMax())));
+    }
+};
+
+struct compareOrdersPrice{
+    bool operator()(Order o1, Order o2){
+        return ((double)o1.getPrice()/(o1.getWeight() + o1.getVolume()) > (double)o2.getPrice()/(o2.getWeight() + o2.getVolume()));
+    }
+};
+ */
+
+struct compareCouriersFee{
+    bool operator()(Courier c1, Courier c2){
+        return (c1.getFee() < c2.getFee());
+    }
+};
+
+struct compareOrdersPrice{
+    bool operator()(Order o1, Order o2){
+        return (o1.getPrice() > o2.getPrice());
+    }
+};
 
 ///Algorithms
-void ManageOrders::averageTime(vector <Order> ordersExpress) {
+void ManageOrders::averageTime() {
     int timeTotal = 0;
     int time = 0;
     int num = 0;
@@ -134,6 +213,36 @@ map<int, vector<Order>> ManageOrders::efficientCourier() {
     }
     return result;
 }
+
+
+
+map<int,vector<Order>> ManageOrders::efficientProfit(){
+    map<int,vector<Order>> result;
+
+    sort(ordersNormal.begin(),ordersNormal.end(),compareOrdersPrice());
+    sort(couriers.begin(), couriers.end(), compareCouriersFee());
+
+    for (Order o1:ordersNormal) {
+        for(Courier c1:couriers){
+            if(result.find(c1.getId()) == result.end()){
+                if((c1.getWeightMax() >= o1.getWeight()) && (c1.getVolMax() >= o1.getVolume())){
+                    vector<Order> v;
+                    v.push_back(o1);
+                    result.insert(pair<int,vector<Order>>(c1.getId(),v));
+                    break;
+                }
+            }else{
+                if(((sumWeight(result[c1.getId()]) + o1.getWeight()) <= c1.getWeightMax()) &&
+                   ((sumVol(result[c1.getId()]) + o1.getVolume()) <= c1.getVolMax())){
+                    result[c1.getId()].push_back(o1);
+                    break;
+                }
+            }
+        }
+    }
+    return result;
+}
+
 
 
 
