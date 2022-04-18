@@ -9,7 +9,6 @@ int main() {
 
     load.run(mO);
 
-    cout << "PRICE"<<endl;
-    mO.printMap(mO.efficientProfit());
+    mO.menu();
     return 0;
 }

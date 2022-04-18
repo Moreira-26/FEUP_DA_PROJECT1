@@ -75,11 +75,10 @@ void ManageOrders::menu() {
         cout << "3) Minimize time of express orders' delivery" << endl;
         cout << "0) Exit" << endl;
         
-        
+        cin >> input;
         while(input != 0 && input != 1 && input != 2 && input != 3) {
             cout << "Input invalido, insira novamente!" << endl;
             cin.clear();
-            cin.ignore(1000, '\n');
             cin >> input;
         }
 
@@ -88,10 +87,10 @@ void ManageOrders::menu() {
                 notExit = false;
                 break;
             case 1:
-                efficientCourier();
+                printMapCourier(efficientCourier());
                 break;
             case 2:
-                efficientProfit();
+                printMapProfit(efficientProfit());
                 break;
             case 3:
                 averageTime();
@@ -103,7 +102,7 @@ void ManageOrders::menu() {
 
 
 /////Prints
-void ManageOrders::printMap(map<int,vector<Order>> mapResult) {
+void ManageOrders::printMapProfit(map<int,vector<Order>> mapResult) {
     int count = 0;
     int total = 0;
     for(pair<int,vector<Order>> p:mapResult){
@@ -122,8 +121,29 @@ void ManageOrders::printMap(map<int,vector<Order>> mapResult) {
 
     cout << "Nº estafetas: " << mapResult.size() << endl;
     cout << count << endl;
-    cout << total;
+    cout << total<< endl;
 }
+
+void ManageOrders::printMapCourier(map<int,vector<Order>> mapResult) {
+    int numOrder = 0;
+    for(pair<int,vector<Order>> p:mapResult){
+            cout << "id Estafeta: " << p.first << " ";
+            cout << "Encomendas: ";
+            for(Order o: p.second){
+                cout << o.getId() << " ";
+                numOrder++;
+            }
+            cout << endl;
+    }
+
+    cout << "Nº estafetas: " << mapResult.size() << endl;
+    cout << "Nº encomendas: " << numOrder << endl;
+}
+
+void ManageOrders::printMapTime(map<int, vector<Order>> mapResult) {
+
+}
+
 
 ////Compare
 struct compareOrdersTime{
@@ -144,7 +164,8 @@ struct compareCouriersWeightVol{
         return (c1.getWeightMax() + c1.getVolMax() > c2.getWeightMax() + c2.getVolMax());
     }
 };
-/*
+
+
 struct compareCouriersFee{
     bool operator()(Courier c1, Courier c2){
         return (((double)(c1.getFee())/(c1.getWeightMax() + c1.getVolMax())) < ((double)c2.getFee()/(c2.getWeightMax() + c2.getVolMax())));
@@ -156,19 +177,7 @@ struct compareOrdersPrice{
         return ((double)o1.getPrice()/(o1.getWeight() + o1.getVolume()) > (double)o2.getPrice()/(o2.getWeight() + o2.getVolume()));
     }
 };
- */
 
-struct compareCouriersFee{
-    bool operator()(Courier c1, Courier c2){
-        return (c1.getFee() < c2.getFee());
-    }
-};
-
-struct compareOrdersPrice{
-    bool operator()(Order o1, Order o2){
-        return (o1.getPrice() > o2.getPrice());
-    }
-};
 
 ///Algorithms
 void ManageOrders::averageTime() {
@@ -176,6 +185,9 @@ void ManageOrders::averageTime() {
     int time = 0;
     int num = 0;
 
+    if(ordersExpress.empty()){
+        return;
+    }
     sort(ordersExpress.begin(), ordersExpress.end(), compareOrdersTime());
 
     while(((timeTotal + ordersExpress.front().getTime())  < (3600 * 8)) && !ordersExpress.empty()){
@@ -242,6 +254,9 @@ map<int,vector<Order>> ManageOrders::efficientProfit(){
     }
     return result;
 }
+
+
+
 
 
 

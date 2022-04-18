@@ -16,9 +16,9 @@ public:
     vector<Order>& getOrdersExpress();
     vector<Order>& getOrdersNormal();
     Courier& getCourierId(int id);
-    void printCouriers();
-    void printOrders();
-    void printMap(map<int,vector<Order>> mapResult);
+    void printMapTime(map<int,vector<Order>> mapResult);
+    void printMapCourier(map<int,vector<Order>> mapResult);
+    void printMapProfit(map<int,vector<Order>> mapResult);
     void averageTime();
     map<int,vector<Order>> efficientCourier();
     map<int,vector<Order>> efficientProfit();
