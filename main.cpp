@@ -8,11 +8,8 @@ int main() {
     ManageOrders mO;
 
     load.run(mO);
-    cout << "VOLUME" << endl;
-    mO.printMap(mO.efficientCourierVol());
-    cout << endl;
-    cout << endl;
+
     cout << "WEIGHT"<<endl;
-    mO.printMap(mO.efficientCourierWeight());
+    mO.printMap(mO.efficientCourier());
     return 0;
 }

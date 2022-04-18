@@ -35,6 +35,9 @@ Otimização do lucro da empresa:
 	
 	Se não houver capacidade de transporte ou despesas > receitas os pedidos que não poderem ser transportados são descartados.
 
+ordenar carrinhas por menor custo
+ordenar encomendas por maior lucro
+
 -----------------------------------------------
 
 Otimização das entregas expresso:

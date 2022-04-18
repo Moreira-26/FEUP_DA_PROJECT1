@@ -15,12 +15,12 @@ public:
     void addOrder(Order& o);
     vector<Order>& getOrdersExpress();
     vector<Order>& getOrdersNormal();
+    Courier& getCourierId(int id);
     void printCouriers();
     void printOrders();
     void printMap(map<int,vector<Order>> mapResult);
     void averageTime(vector<Order> ordersExpress);
-    map<int,vector<Order>> efficientCourierVol();
-    map<int,vector<Order>> efficientCourierWeight();
+    map<int,vector<Order>> efficientCourier();
 };
 
 
