@@ -6,15 +6,13 @@
 
 class ManageOrders {
     vector<Courier> couriers;
-    vector<Order> ordersNormal;
-    vector<Order> ordersExpress;
+    vector<Order> orders;
 
 public:
     ManageOrders();
     void addCourier(Courier& c);
     void addOrder(Order& o);
-    vector<Order>& getOrdersExpress();
-    vector<Order>& getOrdersNormal();
+    vector<Order>& getOrders();
     Courier& getCourierId(int id);
     void printMapTime(map<int,vector<Order>> mapResult);
     void printMapCourier(map<int,vector<Order>> mapResult);

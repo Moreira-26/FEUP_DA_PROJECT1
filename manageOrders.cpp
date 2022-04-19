@@ -13,19 +13,11 @@ void ManageOrders::addCourier(Courier &c) {
 }
 
 void ManageOrders::addOrder(Order &o) {
-    if(o.getIsExpress()){
-        ordersExpress.push_back(o);
-    }else{
-        ordersNormal.push_back(o);
-    }
+    orders.push_back(o);
 }
 
-vector <Order> &ManageOrders::getOrdersExpress() {
-    return this->ordersExpress;
-}
-
-vector <Order> &ManageOrders::getOrdersNormal() {
-    return this->ordersNormal;
+vector <Order> &ManageOrders::getOrders() {
+    return this->orders;
 }
 
 Courier& ManageOrders::getCourierId(int id){
@@ -188,29 +180,33 @@ void ManageOrders::averageTime() {
     int time = 0;
     int num = 0;
 
-    if(ordersExpress.empty()){
+    if(orders.empty()){
         cout << "No express deliveries" << endl;
         cout << endl;
         return;
     }
-    sort(ordersExpress.begin(), ordersExpress.end(), compareOrdersTime());
+    sort(orders.begin(), orders.end(), compareOrdersTime());
 
-    while(((timeTotal + ordersExpress.front().getTime())  < (3600 * 8)) && !ordersExpress.empty()){
-        timeTotal += ordersExpress.front().getTime();
-        time += timeTotal + ordersExpress.front().getTime();
+    while(((timeTotal + orders.front().getTime())  < (3600 * 8)) && !orders.empty()){
+        timeTotal += orders.front().getTime();
+        time += timeTotal + orders.front().getTime();
         num++;
-        cout << "OrderId:" <<  ordersExpress.front().getId() << " min: " << (time/num) / 60 << " " << "sec: " << (time/num) % 60 << endl;
-        ordersExpress.erase(ordersExpress.begin());
+        if(((time / num) / (60*60))>= 1){
+            cout << "OrderId:" <<  orders.front().getId() << " hour: " << (time/(num)) / (60*60) << " min: " << (((time/(num)) / (60)) %60)  << " " << "sec: " << (time/num) % 60 << endl;
+        }else {
+            cout << "OrderId:" << orders.front().getId() << " min: " << (time / num) / (60) << " " << "sec: "<< (time / num) % 60 << endl;
+        }
+        orders.erase(orders.begin());
     }
 }
 
 map<int, vector<Order>> ManageOrders::efficientCourier() {
     map<int,vector<Order>> result;
 
-    sort(ordersNormal.begin(),ordersNormal.end(),compareOrdersWeightVol());
+    sort(orders.begin(),orders.end(),compareOrdersWeightVol());
     sort(couriers.begin(), couriers.end(), compareCouriersWeightVol());
 
-    for (Order o1:ordersNormal) {
+    for (Order o1:orders) {
         for(Courier c1:couriers){
             if(result.find(c1.getId()) == result.end()){
                 if((c1.getWeightMax() >= o1.getWeight()) && (c1.getVolMax() >= o1.getVolume())){
@@ -236,10 +232,10 @@ map<int, vector<Order>> ManageOrders::efficientCourier() {
 map<int,vector<Order>> ManageOrders::efficientProfit(){
     map<int,vector<Order>> result;
 
-    sort(ordersNormal.begin(),ordersNormal.end(),compareOrdersPrice());
+    sort(orders.begin(),orders.end(),compareOrdersPrice());
     sort(couriers.begin(), couriers.end(), compareCouriersFee());
 
-    for (Order o1:ordersNormal) {
+    for (Order o1:orders) {
         for(Courier c1:couriers){
             if(result.find(c1.getId()) == result.end()){
                 if((c1.getWeightMax() >= o1.getWeight()) && (c1.getVolMax() >= o1.getVolume())){
