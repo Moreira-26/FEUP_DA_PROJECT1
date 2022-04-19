@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Project.dir/main.cpp.o CMakeFiles/Project.dir/courier.cpp.o CMakeFiles/Project.dir/order.cpp.o CMakeFiles/Project.dir/load.cpp.o CMakeFiles/Project.dir/manageOrders.cpp.o -o Project 

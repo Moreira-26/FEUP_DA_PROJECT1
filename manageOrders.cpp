@@ -104,24 +104,27 @@ void ManageOrders::menu() {
 /////Prints
 void ManageOrders::printMapProfit(map<int,vector<Order>> mapResult) {
     int count = 0;
+    int delivered = 0;
     int total = 0;
     for(pair<int,vector<Order>> p:mapResult){
         int aux = sumPrice(p.second) - getCourierId(p.first).getFee();
-        total += sumPrice(p.second);
         if(aux > 0) {
             count+= aux;
             cout << "id Estafeta: " << p.first << " " << "Profit: " << aux << " ";
             cout << "Encomendas: ";
             for(Order o: p.second){
+                delivered++;
                 cout << o.getId() << " ";
             }
             cout << endl;
         }
+        total += p.second.size();
     }
 
-    cout << "Nº estafetas: " << mapResult.size() << endl;
-    cout << count << endl;
-    cout << total<< endl;
+    cout << "Nº couriers: " << mapResult.size() << endl;
+    cout << "Total profit: " << count << "€" << endl;
+    cout << "Percentage of delivered orders: " << (double) (delivered * 100) / total << "%" << endl;
+    cout << endl;
 }
 
 void ManageOrders::printMapCourier(map<int,vector<Order>> mapResult) {
@@ -154,27 +157,27 @@ struct compareOrdersTime{
 
 struct compareOrdersWeightVol{
     bool operator()(Order o1,Order o2) {
-        return (o1.getWeight() + o1.getVolume()  > o2.getWeight() + o2.getVolume());
+        return (o1.getWeight() * o1.getVolume()  > o2.getWeight() * o2.getVolume());
     }
 };
 
 
 struct compareCouriersWeightVol{
     bool operator()(Courier c1, Courier c2){
-        return (c1.getWeightMax() + c1.getVolMax() > c2.getWeightMax() + c2.getVolMax());
+        return (c1.getWeightMax() * c1.getVolMax() > c2.getWeightMax() * c2.getVolMax());
     }
 };
 
 
 struct compareCouriersFee{
     bool operator()(Courier c1, Courier c2){
-        return (((double)(c1.getFee())/(c1.getWeightMax() + c1.getVolMax())) < ((double)c2.getFee()/(c2.getWeightMax() + c2.getVolMax())));
+        return (((double)(c1.getFee())/(c1.getWeightMax() * c1.getVolMax())) < ((double)c2.getFee()/(c2.getWeightMax() * c2.getVolMax())));
     }
 };
 
 struct compareOrdersPrice{
     bool operator()(Order o1, Order o2){
-        return ((double)o1.getPrice()/(o1.getWeight() + o1.getVolume()) > (double)o2.getPrice()/(o2.getWeight() + o2.getVolume()));
+        return ((double)o1.getPrice()/(o1.getWeight() * o1.getVolume()) > (double)o2.getPrice()/(o2.getWeight() * o2.getVolume()));
     }
 };
 
@@ -186,6 +189,8 @@ void ManageOrders::averageTime() {
     int num = 0;
 
     if(ordersExpress.empty()){
+        cout << "No express deliveries" << endl;
+        cout << endl;
         return;
     }
     sort(ordersExpress.begin(), ordersExpress.end(), compareOrdersTime());
