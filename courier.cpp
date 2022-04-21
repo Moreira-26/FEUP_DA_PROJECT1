@@ -30,12 +30,5 @@ int Courier::getFee() {
     return fee;
 }
 
-vector <Order> Courier::getOrders() {
-    return orders;
-}
-
-void Courier::addOrder(Order &order) {
-    this->orders.push_back(order);
-}
 
 

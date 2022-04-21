@@ -6,18 +6,13 @@
 
 int Order::idSt = 1;
 
-Order::Order(bool isExpress, int weight, int volume, int price, int time) {
-    this->isExpress = isExpress;
+Order::Order( int weight, int volume, int price, int time) {
     this->weight = weight;
     this->volume = volume;
     this->price = price;
     this->time = time;
     this->id = idSt;
     idSt++;
-}
-
-int Order::getIsExpress() {
-    return isExpress;
 }
 
 int Order::getWeight() {
@@ -40,7 +35,4 @@ int Order::getId() {
     return id;
 }
 
-bool Order::operator<(const Order o1) {
-    return this->getTime() < o1.time;
-}
 

@@ -16,10 +16,6 @@ void ManageOrders::addOrder(Order &o) {
     orders.push_back(o);
 }
 
-vector <Order> &ManageOrders::getOrders() {
-    return this->orders;
-}
-
 Courier& ManageOrders::getCourierId(int id){
     for (Courier&c :couriers){
         if(c.getId() == id){
@@ -28,8 +24,6 @@ Courier& ManageOrders::getCourierId(int id){
     }
 }
 
-
-///Auxiliar Functions
 int sumVol(vector<Order> orders){
     int count  = 0;
     for(Order o : orders){
@@ -135,12 +129,9 @@ void ManageOrders::printMapCourier(map<int,vector<Order>> mapResult) {
     cout << "Nº encomendas: " << numOrder << endl;
 }
 
-void ManageOrders::printMapTime(map<int, vector<Order>> mapResult) {
-
-}
 
 
-////Compare
+
 struct compareOrdersTime{
     bool operator()(Order o1,Order o2) {
         return (o1.getTime() < o2.getTime());

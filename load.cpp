@@ -30,7 +30,7 @@ void Load::couriers(ManageOrders &manageOrders) {
 }
 
 void Load::orders(ManageOrders &manageOrders) {
-    string line, volume, weight, price, time, express;
+    string line, volume, weight, price, time;
     bool isExpress;
     ifstream ordersStream;
     ordersStream.open(FILE_ORDERS);
@@ -44,13 +44,8 @@ void Load::orders(ManageOrders &manageOrders) {
             ss >> weight;
             ss >> price;
             ss >> time;
-            ss >> express;
-            if(express == "1"){
-                isExpress = true;
-            }else{
-                isExpress = false;
-            }
-            Order o(isExpress, stoi(weight), stoi(volume),stoi(price),stoi(time));
+
+            Order o( stoi(weight), stoi(volume),stoi(price),stoi(time));
             manageOrders.addOrder(o);
         }
     }else{

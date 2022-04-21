@@ -1,0 +1,132 @@
+\hypertarget{classManageOrders}{}\doxysection{Manage\+Orders Class Reference}
+\label{classManageOrders}\index{ManageOrders@{ManageOrders}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classManageOrders_ae175ee160d7a99efc8b018b0c2c52104}{Manage\+Orders}} ()
+\item 
+void \mbox{\hyperlink{classManageOrders_a472c40a81e7a15342645b8f903bee44d}{add\+Courier}} (\mbox{\hyperlink{classCourier}{Courier}} \&c)
+\item 
+void \mbox{\hyperlink{classManageOrders_abccbf1187dc8eed7bd271a09cfc7c47a}{add\+Order}} (\mbox{\hyperlink{classOrder}{Order}} \&o)
+\item 
+\mbox{\hyperlink{classCourier}{Courier}} \& \mbox{\hyperlink{classManageOrders_af37ab4ecef0ecf2a5db130d8dccf6524}{get\+Courier\+Id}} (int id)
+\item 
+void \mbox{\hyperlink{classManageOrders_aa559864fbce836ea2b90f77634431110}{print\+Map\+Courier}} (map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$ map\+Result)
+\item 
+void \mbox{\hyperlink{classManageOrders_a106a892efb2ff499eb8ede199f6277b8}{print\+Map\+Profit}} (map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$ map\+Result)
+\item 
+void \mbox{\hyperlink{classManageOrders_a2e6059c9fc3a0d90d85356bc7491f185}{average\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Algorithms. \end{DoxyCompactList}\item 
+map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ \mbox{\hyperlink{classManageOrders_a3ad4bf77e33f26bc2ff249368e8ac939}{efficient\+Courier}} ()
+\item 
+map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ \mbox{\hyperlink{classManageOrders_ad155bf8cede7fb9ea5977268ef2f5bfc}{efficient\+Profit}} ()
+\item 
+void \mbox{\hyperlink{classManageOrders_a2cb4b4602f74b0a4a36e39bf55abe57e}{menu}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classManageOrders_ae175ee160d7a99efc8b018b0c2c52104}\label{classManageOrders_ae175ee160d7a99efc8b018b0c2c52104}} 
+\index{ManageOrders@{ManageOrders}!ManageOrders@{ManageOrders}}
+\index{ManageOrders@{ManageOrders}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{ManageOrders()}{ManageOrders()}}
+{\footnotesize\ttfamily Manage\+Orders\+::\+Manage\+Orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor of class manage\+Orders 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classManageOrders_a472c40a81e7a15342645b8f903bee44d}\label{classManageOrders_a472c40a81e7a15342645b8f903bee44d}} 
+\index{ManageOrders@{ManageOrders}!addCourier@{addCourier}}
+\index{addCourier@{addCourier}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{addCourier()}{addCourier()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::add\+Courier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourier}{Courier}} \&}]{c }\end{DoxyParamCaption})}
+
+Method responsible for adding a courier 
+\begin{DoxyParams}{Parameters}
+{\em c} & courier added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManageOrders_abccbf1187dc8eed7bd271a09cfc7c47a}\label{classManageOrders_abccbf1187dc8eed7bd271a09cfc7c47a}} 
+\index{ManageOrders@{ManageOrders}!addOrder@{addOrder}}
+\index{addOrder@{addOrder}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{addOrder()}{addOrder()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::add\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOrder}{Order}} \&}]{o }\end{DoxyParamCaption})}
+
+Method responsible for adding a order 
+\begin{DoxyParams}{Parameters}
+{\em o} & order added \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManageOrders_a2e6059c9fc3a0d90d85356bc7491f185}\label{classManageOrders_a2e6059c9fc3a0d90d85356bc7491f185}} 
+\index{ManageOrders@{ManageOrders}!averageTime@{averageTime}}
+\index{averageTime@{averageTime}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{averageTime()}{averageTime()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::average\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Algorithms. 
+
+Method responsible for printing and calculating the best average time taken by each express order \mbox{\Hypertarget{classManageOrders_a3ad4bf77e33f26bc2ff249368e8ac939}\label{classManageOrders_a3ad4bf77e33f26bc2ff249368e8ac939}} 
+\index{ManageOrders@{ManageOrders}!efficientCourier@{efficientCourier}}
+\index{efficientCourier@{efficientCourier}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{efficientCourier()}{efficientCourier()}}
+{\footnotesize\ttfamily map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ Manage\+Orders\+::efficient\+Courier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method responsible for calculating the most efficient way of using the couriers \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManageOrders_ad155bf8cede7fb9ea5977268ef2f5bfc}\label{classManageOrders_ad155bf8cede7fb9ea5977268ef2f5bfc}} 
+\index{ManageOrders@{ManageOrders}!efficientProfit@{efficientProfit}}
+\index{efficientProfit@{efficientProfit}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{efficientProfit()}{efficientProfit()}}
+{\footnotesize\ttfamily map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$ $>$ Manage\+Orders\+::efficient\+Profit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method responsible for calculating the most profitable way of delivering the highest number of orders possible \mbox{\Hypertarget{classManageOrders_af37ab4ecef0ecf2a5db130d8dccf6524}\label{classManageOrders_af37ab4ecef0ecf2a5db130d8dccf6524}} 
+\index{ManageOrders@{ManageOrders}!getCourierId@{getCourierId}}
+\index{getCourierId@{getCourierId}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{getCourierId()}{getCourierId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCourier}{Courier}} \& Manage\+Orders\+::get\+Courier\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Method responsible for returning the courier with the given id 
+\begin{DoxyParams}{Parameters}
+{\em id} & id of the courier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+courier with the given id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManageOrders_a2cb4b4602f74b0a4a36e39bf55abe57e}\label{classManageOrders_a2cb4b4602f74b0a4a36e39bf55abe57e}} 
+\index{ManageOrders@{ManageOrders}!menu@{menu}}
+\index{menu@{menu}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method responsible for printing the menu to the console \mbox{\Hypertarget{classManageOrders_aa559864fbce836ea2b90f77634431110}\label{classManageOrders_aa559864fbce836ea2b90f77634431110}} 
+\index{ManageOrders@{ManageOrders}!printMapCourier@{printMapCourier}}
+\index{printMapCourier@{printMapCourier}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{printMapCourier()}{printMapCourier()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::print\+Map\+Courier (\begin{DoxyParamCaption}\item[{map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$}]{map\+Result }\end{DoxyParamCaption})}
+
+Method responsible for printing the map with the couriers used in the algorithm efficient courier 
+\begin{DoxyParams}{Parameters}
+{\em map\+Result} & map with the id and orders associated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManageOrders_a106a892efb2ff499eb8ede199f6277b8}\label{classManageOrders_a106a892efb2ff499eb8ede199f6277b8}} 
+\index{ManageOrders@{ManageOrders}!printMapProfit@{printMapProfit}}
+\index{printMapProfit@{printMapProfit}!ManageOrders@{ManageOrders}}
+\doxysubsubsection{\texorpdfstring{printMapProfit()}{printMapProfit()}}
+{\footnotesize\ttfamily void Manage\+Orders\+::print\+Map\+Profit (\begin{DoxyParamCaption}\item[{map$<$ int, vector$<$ \mbox{\hyperlink{classOrder}{Order}} $>$$>$}]{map\+Result }\end{DoxyParamCaption})}
+
+Method responsible for printing the map with the couriers used in the algorithm efficient profit 
+\begin{DoxyParams}{Parameters}
+{\em map\+Result} & map with the id and orders associated \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+manage\+Orders.\+h\item 
+manage\+Orders.\+cpp\end{DoxyCompactItemize}

@@ -5,21 +5,51 @@
 class Order {
     static int idSt;
     int id;
-    bool isExpress;
     int weight;
     int volume;
     int price;
     int time;
 
 public:
-    Order(bool isExpress, int weight, int volume, int price,int time);
-    int getIsExpress();
+    /**
+     * Constructor of class order
+     * @param weight order's weight
+     * @param volume order's volume
+     * @param price order's price
+     * @param time time needed to deliver the order
+     */
+    Order( int weight, int volume, int price,int time);
+
+    /**
+     * This method returns the order's weight
+     * @return the weight value
+     */
     int getWeight();
+
+    /**
+     * This method returns the order's volume
+     * @return the volume value
+     */
     int getVolume();
+
+    /**
+     * This method returns the order's price
+     * @return the price value
+     */
     int getPrice();
+
+    /**
+     * This method returns the order's time
+     * @return the time value
+     */
     int getTime();
+
+    /**
+     * This method returns the order's id
+     * @return the id value
+     */
     int getId();
-    bool operator<(const Order o1);
+
 };
 
 
