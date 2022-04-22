@@ -183,7 +183,8 @@ void ManageOrders::averageTime() {
         time += timeTotal + orders.front().getTime();
         num++;
         if(((time / num) / (60*60))>= 1){
-            cout << "OrderId:" <<  orders.front().getId() << " hour: " << (time/(num)) / (60*60) << " min: " << (((time/(num)) / (60)) %60)  << " " << "sec: " << (time/num) % 60 << endl;
+            cout << "OrderId:" <<  orders.front().getId() << " hour: " << (time/(num)) / (60*60) << " min: " << (((time/(num)) / (60)) %60)
+                                                                                                << " " << "sec: " << (time/num) % 60 << endl;
         }else {
             cout << "OrderId:" << orders.front().getId() << " min: " << (time / num) / (60) << " " << "sec: "<< (time / num) % 60 << endl;
         }
