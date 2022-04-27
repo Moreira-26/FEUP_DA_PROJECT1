@@ -4,7 +4,7 @@
 #include "defs.h"
 #include "manageOrders.h"
 class Load {
-    string FILE_ORDERS = "encomendas1.txt";
+    string FILE_ORDERS = "encomendas.txt";
     string FILE_COURIER = "carrinhas.txt";
 
     /**

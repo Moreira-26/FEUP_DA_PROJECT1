@@ -31,7 +31,6 @@ void Load::couriers(ManageOrders &manageOrders) {
 
 void Load::orders(ManageOrders &manageOrders) {
     string line, volume, weight, price, time;
-    bool isExpress;
     ifstream ordersStream;
     ordersStream.open(FILE_ORDERS);
 

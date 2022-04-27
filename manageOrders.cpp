@@ -48,7 +48,6 @@ int sumPrice(vector<Order> orders){
     return count;
 }
 
-/////Menu
 void ManageOrders::menu() {
     bool notExit = true;
     int input;
@@ -86,8 +85,6 @@ void ManageOrders::menu() {
     } while (notExit);
 }
 
-
-/////Prints
 void ManageOrders::printMapProfit(map<int,vector<Order>> mapResult) {
     int count = 0;
     int delivered = 0;
@@ -129,9 +126,6 @@ void ManageOrders::printMapCourier(map<int,vector<Order>> mapResult) {
     cout << "Nº encomendas: " << numOrder << endl;
 }
 
-
-
-
 struct compareOrdersTime{
     bool operator()(Order o1,Order o2) {
         return (o1.getTime() < o2.getTime());
@@ -165,7 +159,6 @@ struct compareOrdersPrice{
 };
 
 
-///Algorithms
 void ManageOrders::averageTime() {
     int timeTotal = 0;
     int time = 0;
